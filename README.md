@@ -26,14 +26,14 @@ This PR must contain at least:
  
 Format of `metadata.json`:
 
-```
+```js
 { 
   "project_name" : "foo", //mandatory
   "project_git_url" : "http://github.com/foo/bar", //mandatory
-  "commit_sha1" : "eeeeeee" //mandatory
-  "issue_url": "http://fooo.com/jira/1253" // optional
-  "comment", "free test"  // optional
-  "author_name", "free test"  // optional
+  "commit_sha1" : "eeeeeee", //mandatory
+  "issue_url": "http://fooo.com/jira/1253", // optional
+  "comment": "free test",  // optional
+  "author_name": "free test"  // optional
 }
 ```
 
