@@ -21,6 +21,7 @@ To propose a new bug, one makes a pull request (PR) to branch "pr_new_bug" of th
 
 This PR must contain at least:
 * a well-formed Maven file called `pom.xml` at the root of the branch
+* the source code of the application and tests, usually in `src/(test|main)/java` but not necessarily, this is inferred from pom.xml
 * a file called `metadata.json` a follows
 * a file called `patch.diff`
  
