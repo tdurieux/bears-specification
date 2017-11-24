@@ -50,6 +50,16 @@ The BEARS CI deamon checks the following on each new pull request, ie on each ne
 * that `mvn test` fails in less than 20 minutes and then succeeds in less than 20 minutes
 * that the PR does not contain a `.travis.yml` file (this file provided automatically by the dataset infrastructure)
 
+When a PR is merged, the CI daemon does different steps:
+
+* automatically picks the next free numerical branch identifier (eg `00002`), 
+* automatically creates `metadata-derived.json` which metadata inferred from running the buggy and the patched version
+  * with the list of test names (from surefire)
+  * the stack trace of test failures and errors (from surefire)
+  * the coverage
+  * eg some automatic repair information
+* pushes the new branch to the main repository
+
 ## Architecture of the Git repository
 
 The core idea is that there is one branch per bug in the dataset. There are named with a unique numeric identifier encoded on 5 digits (eg `00001`).
