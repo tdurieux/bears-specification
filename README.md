@@ -60,13 +60,15 @@ When a PR is merged, the CI daemon does different steps:
   * the coverage
   * eg some automatic repair information
 * pushes the new branch to the main repository
+* pushes the metadata files to special branch `all_metadata`, in a folder with the bug identifier, ie `foo001/metadata.json` and `foo001/metadata-derived.json`
 
 ## Architecture of the Git repository
 
 The core idea is that there is one branch per bug in the dataset. There are named with a unique identifier composed of the project name (as given in `metadata.json`) suffixed with a unique identifier on 3 digits (eg `foo001`).
 
-There are two special branches.
+There are three special branches.
 
-* there is a branch called "pr_new_bug" that only contains a `.travis.yml` and helper scripts in folder ".travis". `.travis.yml` contains the code of the BEARS CI daemon that checks the validity of the proposed bug.
-* The master branch contains scripts to use the dataset, the code of the UI dashboard to browse the dataset and a README.
+* branch "pr_new_bug" that only contains a `.travis.yml` and helper scripts in folder ".travis". `.travis.yml` contains the code of the BEARS CI daemon that checks the validity of the proposed bug.
+* branch `master` contains scripts to use the dataset, the code of the UI dashboard to browse the dataset and a README.
+* branch `all_metadata` that concatenates all the metadata for easy and efficient use.
 
