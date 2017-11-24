@@ -53,7 +53,7 @@ The BEARS CI deamon checks the following on each new pull request, ie on each ne
 
 When a PR is merged, the CI daemon does different steps:
 
-* automatically picks the next free numerical branch identifier (eg `00002`), 
+* automatically picks the next free numerical branch identifier for this project, as given by the project name in the metadata (eg `foo002` if `foo001` already exists), 
 * automatically creates `metadata-derived.json` which metadata inferred from running the buggy and the patched version
   * with the list of test names (from surefire)
   * the stack trace of test failures and errors (from surefire)
@@ -63,7 +63,7 @@ When a PR is merged, the CI daemon does different steps:
 
 ## Architecture of the Git repository
 
-The core idea is that there is one branch per bug in the dataset. There are named with a unique numeric identifier encoded on 5 digits (eg `00001`).
+The core idea is that there is one branch per bug in the dataset. There are named with a unique identifier composed of the project name (as given in `metadata.json`) suffixed with a unique identifier on 3 digits (eg `foo001`).
 
 There are two special branches.
 
